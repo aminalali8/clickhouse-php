@@ -89,7 +89,7 @@ $statement = $db->select('
 print_r($statement->rowsAsTree('event_date.site_key'));
 
 $db->write('DROP TABLE IF EXISTS summing_url_views');
-echo " \n deleted database;"
+echo " \n deleted database";
 
 
 if (!$db->ping()) {echo 'Error connect';} else { echo "\n Connected!";};
