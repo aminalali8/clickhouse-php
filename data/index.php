@@ -17,7 +17,7 @@ $db->database('default');
 $db->setTimeout(10);       // 10 seconds
 $db->setConnectTimeOut(10); // 5 seconds
 
-echo "<html>";
+echo "<html><pre>";
 
 if (!$db->ping()) {echo "</br>"; echo  'Error connect';} else { echo "</br>"; echo  " Connected!\n";};
 // ---------------------------- Write ----------------------------
@@ -157,7 +157,7 @@ echo "</br>"; echo  "Tables EXISTS: <pre>".json_encode($db->showTables())."</pre
 Tables EXISTS:[]
  */
 
-echo "</html>";
+echo "</pre></html>";
 
 
 
