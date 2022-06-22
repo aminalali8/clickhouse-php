@@ -26,8 +26,8 @@ $db->database('default');
 //------------------------------------------------------------------------------
 
 echo "</br>"; echo  'Tables EXISTS: ' . json_encode($db->showTables()) . PHP_EOL;
-$db->write('DROP TABLE IF EXISTS summing_url_views');
-echo "</br>"; echo  'Tables EXISTS: ' . json_encode($db->showTables()) . PHP_EOL;
+// $db->write('DROP TABLE IF EXISTS summing_url_views');
+// echo "</br>"; echo  'Tables EXISTS: ' . json_encode($db->showTables()) . PHP_EOL;
 
 $db->write('
     CREATE TABLE IF NOT EXISTS summing_url_views (
@@ -69,7 +69,7 @@ echo "</br>"; echo  "Insert Done\n";
 echo "</br>"; echo  "Try select \n";
 
 
-$st = $db->select('SELECT * FROM summing_url_views LIMIT 2');
+$st = $db->select('SELECT * FROM summing_url_views');
 
 
 
