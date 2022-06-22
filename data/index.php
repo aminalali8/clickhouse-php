@@ -17,7 +17,7 @@ $db->setTimeout(1.5);      // 1500 ms
 $db->setTimeout(10);       // 10 seconds
 $db->setConnectTimeOut(5); // 5 seconds
 
-
+if (!$db->ping()) {echo 'Error connect';} else { echo " Connected!\n";};
 // ---------------------------- Write ----------------------------
 echo "\n-----\ntry write:create_table\n";
 $db->database('default');
@@ -156,4 +156,3 @@ Tables EXISTS:[]
  */
 
 
-if (!$db->ping()) {echo 'Error connect';} else { echo "\n Connected!";};
