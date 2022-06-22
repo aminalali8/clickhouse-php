@@ -17,15 +17,15 @@ $db->setTimeout(1.5);      // 1500 ms
 $db->setTimeout(10);       // 10 seconds
 $db->setConnectTimeOut(5); // 5 seconds
 
-if (!$db->ping()) {echo 'Error connect';} else { echo " Connected!\n";};
+if (!$db->ping()) {echo "</br>"; echo  'Error connect';} else { echo "</br>"; echo  " Connected!\n";};
 // ---------------------------- Write ----------------------------
-echo "\n-----\ntry write:create_table\n";
+echo "</br>"; echo  "\n-----\ntry write:create_table\n";
 $db->database('default');
 //------------------------------------------------------------------------------
 
-echo 'Tables EXISTS: ' . json_encode($db->showTables()) . PHP_EOL;
+echo "</br>"; echo  'Tables EXISTS: ' . json_encode($db->showTables()) . PHP_EOL;
 $db->write('DROP TABLE IF EXISTS summing_url_views');
-echo 'Tables EXISTS: ' . json_encode($db->showTables()) . PHP_EOL;
+echo "</br>"; echo  'Tables EXISTS: ' . json_encode($db->showTables()) . PHP_EOL;
 
 $db->write('
     CREATE TABLE IF NOT EXISTS summing_url_views (
@@ -40,14 +40,14 @@ $db->write('
     ENGINE = SummingMergeTree(event_date, (site_id, url_hash, event_time, event_date), 8192)
 '
 );
-echo 'Table EXISTS: ' . json_encode($db->showTables()) . PHP_EOL;
+echo "</br>"; echo  'Table EXISTS: ' . json_encode($db->showTables()) . PHP_EOL;
 
 /*
 Table EXISTS: [{"name": "summing_url_views"}]
 */
 
 //------------------------------------------------------------------------------
-echo "Insert\n";
+echo "</br>"; echo  "Insert\n";
 
 $stat = $db->insert('summing_url_views',
     [
@@ -59,12 +59,12 @@ $stat = $db->insert('summing_url_views',
     ['event_time', 'url_hash', 'site_id', 'views', 'v_00', 'v_55']
 );
 
-echo "Insert Done\n";
+echo "</br>"; echo  "Insert Done\n";
 //------------------------------------------------------------------------------
 
 
 
-echo "Try select \n";
+echo "</br>"; echo  "Try select \n";
 
 
 $st = $db->select('SELECT * FROM summing_url_views LIMIT 2');
@@ -72,15 +72,15 @@ $st = $db->select('SELECT * FROM summing_url_views LIMIT 2');
 
 
 
-echo "Count select rows:".$st->count()."\n";
-echo "Count all rows:".$st->countAll()."\n";
-echo "First row:\n";
+echo "</br>"; echo  "Count select rows:".$st->count()."\n";
+echo "</br>"; echo  "Count all rows:".$st->countAll()."\n";
+echo "</br>"; echo  "First row:\n";
 print_r($st->fetchOne());
 
-echo "extremes_min:\n";
+echo "</br>"; echo  "extremes_min:\n";
 print_r($st->extremesMin());
 
-echo "totals:\n";
+echo "</br>"; echo  "totals:\n";
 print_r($st->totals());
 
 
@@ -90,18 +90,18 @@ $st=$db->select('SELECT event_date,url_hash,sum(views),avg(views) FROM summing_u
 
 
 
-echo "Count select rows:".$st->count()."\n";
+echo "</br>"; echo  "Count select rows:".$st->count()."\n";
 /*
 2
  */
-echo "Count all rows:".$st->countAll()."\n";
+echo "</br>"; echo  "Count all rows:".$st->countAll()."\n";
 /*
 false
  */
 
 
 
-echo "First row:\n";
+echo "</br>"; echo  "First row:\n";
 print_r($st->fetchOne());
 /*
 (
@@ -113,7 +113,7 @@ print_r($st->fetchOne());
  */
 
 
-echo "totals:\n";
+echo "</br>"; echo  "totals:\n";
 print_r($st->totals());
 /*
 (
@@ -126,7 +126,7 @@ print_r($st->totals());
  */
 
 
-echo "Tree Path [event_date.url_hash]:\n";
+echo "</br>"; echo  "Tree Path [event_date.url_hash]:\n";
 print_r($st->rowsAsTree('event_date.url_hash'));
 /*
 (
@@ -150,7 +150,7 @@ print_r($st->rowsAsTree('event_date.url_hash'));
 )
  */
 $db->write("DROP TABLE IF EXISTS summing_url_views");
-echo "Tables EXISTS:".json_encode($db->showTables())."\n";
+echo "</br>"; echo  "Tables EXISTS:".json_encode($db->showTables())."\n";
 /*
 Tables EXISTS:[]
  */
