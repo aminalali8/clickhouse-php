@@ -151,12 +151,12 @@ print_r($st->rowsAsTree('event_date.url_hash'));
         )
 )
  */
-$db->write("DROP TABLE IF EXISTS summing_url_views");
-echo "</br>"; echo  "Tables EXISTS:".json_encode($db->showTables())."\n";
+// $db->write("DROP TABLE IF EXISTS summing_url_views");
+// echo "</br>"; echo  "Tables EXISTS:".json_encode($db->showTables())."\n";
 /*
 Tables EXISTS:[]
  */
-
+echo "Goodbye!";
 echo "</pre></html>";
 
 
