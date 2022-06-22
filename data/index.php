@@ -2,7 +2,7 @@
 
 require 'vendor/autoload.php';
 
-$_ENV['CH_HOST'] = 'clickhouse-5t7paj'
+$_ENV['CH_HOST'] = 'clickhouse-5t7paj';
 
 $config = [
     'host' => $_ENV['CH_HOST'],
