@@ -19,4 +19,4 @@ $db->setConnectTimeOut(5); // 5 seconds
 
 print_r($db->showTables());
 
-if (!$db->ping()) echo 'Error connect' else echo 'Connected!';
+if (!$db->ping()) {echo 'Error connect';} else { echo 'Connected!';};
