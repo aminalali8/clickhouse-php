@@ -8,14 +8,14 @@ services:
       - "8080:80"
     depends_on:
       - php
-    # networks:
-    #   - internal
+    networks:
+      - internal
   php:
     build:
       context: .
       dockerfile: php/Dockerfile
-    # networks:
-      # - internal
-# networks:
-  # internal:
+    networks:
+      - internal
+networks:
+  internal:
     # driver: bridge
