@@ -50,18 +50,37 @@ Table EXISTS: [{"name": "summing_url_views"}]
 
 //------------------------------------------------------------------------------
 echo "</br>"; echo  "Insert\n";
+if (!empty($db->showTables())) {
+    $stat = $db->insert('summing_url_views',
+        [
+            [time(), base64_encode(random_bytes(18)), mt_rand(1000, 5000), mt_rand(01, 99), mt_rand(01, 99), mt_rand(01, 10)],
+            [time(), base64_encode(random_bytes(18)), mt_rand(1000, 5000), mt_rand(01, 99), mt_rand(01, 99), mt_rand(01, 10)],
+            [time(), base64_encode(random_bytes(18)), mt_rand(1000, 5000), mt_rand(01, 99), mt_rand(01, 99), mt_rand(01, 10)],
+            [time(), base64_encode(random_bytes(18)), mt_rand(1000, 5000), mt_rand(01, 99), mt_rand(01, 99), mt_rand(01, 10)],
+            [time(), base64_encode(random_bytes(18)), mt_rand(1000, 5000), mt_rand(01, 99), mt_rand(01, 99), mt_rand(01, 10)],
+            [time(), base64_encode(random_bytes(18)), mt_rand(1000, 5000), mt_rand(01, 99), mt_rand(01, 99), mt_rand(01, 10)],
+            [time(), base64_encode(random_bytes(18)), mt_rand(1000, 5000), mt_rand(01, 99), mt_rand(01, 99), mt_rand(01, 10)],
+            [time(), base64_encode(random_bytes(18)), mt_rand(1000, 5000), mt_rand(01, 99), mt_rand(01, 99), mt_rand(01, 10)],
+            [time(), base64_encode(random_bytes(18)), mt_rand(1000, 5000), mt_rand(01, 99), mt_rand(01, 99), mt_rand(01, 10)],
+            [time(), base64_encode(random_bytes(18)), mt_rand(1000, 5000), mt_rand(01, 99), mt_rand(01, 99), mt_rand(01, 10)],
+            [time(), base64_encode(random_bytes(18)), mt_rand(1000, 5000), mt_rand(01, 99), mt_rand(01, 99), mt_rand(01, 10)],
+            [time(), base64_encode(random_bytes(18)), mt_rand(1000, 5000), mt_rand(01, 99), mt_rand(01, 99), mt_rand(01, 10)],
+            [time(), base64_encode(random_bytes(18)), mt_rand(1000, 5000), mt_rand(01, 99), mt_rand(01, 99), mt_rand(01, 10)],
+            [time(), base64_encode(random_bytes(18)), mt_rand(1000, 5000), mt_rand(01, 99), mt_rand(01, 99), mt_rand(01, 10)],
+            [time(), base64_encode(random_bytes(18)), mt_rand(1000, 5000), mt_rand(01, 99), mt_rand(01, 99), mt_rand(01, 10)],
+            [time(), base64_encode(random_bytes(18)), mt_rand(1000, 5000), mt_rand(01, 99), mt_rand(01, 99), mt_rand(01, 10)],
+            [time(), base64_encode(random_bytes(18)), mt_rand(1000, 5000), mt_rand(01, 99), mt_rand(01, 99), mt_rand(01, 10)],
+            [time(), base64_encode(random_bytes(18)), mt_rand(1000, 5000), mt_rand(01, 99), mt_rand(01, 99), mt_rand(01, 10)],
+            [time(), base64_encode(random_bytes(18)), mt_rand(1000, 5000), mt_rand(01, 99), mt_rand(01, 99), mt_rand(01, 10)],
+            [time(), base64_encode(random_bytes(18)), mt_rand(1000, 5000), mt_rand(01, 99), mt_rand(01, 99), mt_rand(01, 10)],
+            [time(), base64_encode(random_bytes(18)), mt_rand(1000, 5000), mt_rand(01, 99), mt_rand(01, 99), mt_rand(01, 10)],
+            [time(), base64_encode(random_bytes(18)), mt_rand(1000, 5000), mt_rand(01, 99), mt_rand(01, 99), mt_rand(01, 10)],
+        ],
+        ['event_time', 'url_hash', 'site_id', 'views', 'v_00', 'v_55']
+    );
+    echo "</br>"; echo  "Insert Done\n";
+}
 
-$stat = $db->insert('summing_url_views',
-    [
-        [time(), 'HASH1', mt_rand(1000, 5000), mt_rand(01, 99), mt_rand(01, 99), mt_rand(01, 10)],
-        [time(), 'HASH2',  mt_rand(1000, 5000), mt_rand(01, 99), mt_rand(01, 99), mt_rand(01, 10)],
-        [time(), 'HASH3',  mt_rand(1000, 5000), mt_rand(01, 99), mt_rand(01, 99), mt_rand(01, 10)],
-        [time(), 'HASH3',  mt_rand(1000, 5000), mt_rand(01, 99), mt_rand(01, 99), mt_rand(01, 10)],
-    ],
-    ['event_time', 'url_hash', 'site_id', 'views', 'v_00', 'v_55']
-);
-
-echo "</br>"; echo  "Insert Done\n";
 //------------------------------------------------------------------------------
 
 
