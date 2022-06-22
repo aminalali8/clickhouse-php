@@ -26,7 +26,7 @@ $db->database('default');
 //------------------------------------------------------------------------------
 
 echo "</br>"; echo  'Tables EXISTS: ' . json_encode($db->showTables()) . PHP_EOL;
-// $db->write('DROP TABLE IF EXISTS summing_url_views');
+$db->write('DROP TABLE IF EXISTS summing_url_views');
 // echo "</br>"; echo  'Tables EXISTS: ' . json_encode($db->showTables()) . PHP_EOL;
 
 $db->write('
@@ -53,10 +53,10 @@ echo "</br>"; echo  "Insert\n";
 
 $stat = $db->insert('summing_url_views',
     [
-        [time(), 'HASH1', 2345, 22, 20, 2],
-        [time(), 'HASH2', 2345, 12, 9, 3],
-        [time(), 'HASH3', 5345, 33, 33, 0],
-        [time(), 'HASH3', 5345, 55, 0, 55],
+        [time(), 'HASH1', mt_rand(1000, 5000), mt_rand(01, 99), mt_rand(01, 99), mt_rand(01, 10)],
+        [time(), 'HASH2',  mt_rand(1000, 5000), mt_rand(01, 99), mt_rand(01, 99), mt_rand(01, 10)],
+        [time(), 'HASH3',  mt_rand(1000, 5000), mt_rand(01, 99), mt_rand(01, 99), mt_rand(01, 10)],
+        [time(), 'HASH3',  mt_rand(1000, 5000), mt_rand(01, 99), mt_rand(01, 99), mt_rand(01, 10)],
     ],
     ['event_time', 'url_hash', 'site_id', 'views', 'v_00', 'v_55']
 );
