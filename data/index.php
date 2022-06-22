@@ -13,9 +13,9 @@ $config = [
 
 $db = new ClickHouseDB\Client($config);
 $db->database('default');
-$db->setTimeout(1.5);      // 1500 ms
-$db->setTimeout(10);       // 10 seconds
-$db->setConnectTimeOut(5); // 5 seconds
+// $db->setTimeout(1.5);      // 1500 ms
+// $db->setTimeout(10);       // 10 seconds
+// $db->setConnectTimeOut(5); // 5 seconds
 
 echo "<html><pre>";
 
@@ -26,7 +26,7 @@ $db->database('default');
 //------------------------------------------------------------------------------
 
 echo "</br>"; echo  'Tables EXISTS: ' . json_encode($db->showTables()) . PHP_EOL;
-$db->write('DROP TABLE IF EXISTS summing_url_views');
+// $db->write('DROP TABLE IF EXISTS summing_url_views');
 // echo "</br>"; echo  'Tables EXISTS: ' . json_encode($db->showTables()) . PHP_EOL;
 
 $db->write('
