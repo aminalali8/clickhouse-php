@@ -6,14 +6,16 @@ services:
       dockerfile: nginx/production/Dockerfile
     ports: 
       - "8080:80"
-    networks:
-      - internal
+    depends_on:
+      - php
+    # networks:
+    #   - internal
   php:
     build:
       context: .
       dockerfile: php/Dockerfile
-    networks:
-      - internal
-networks:
-  internal:
-    
+    # networks:
+      # - internal
+# networks:
+  # internal:
+    # driver: bridge
