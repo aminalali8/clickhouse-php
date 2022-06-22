@@ -13,9 +13,9 @@ $config = [
 
 $db = new ClickHouseDB\Client($config);
 $db->database('default');
-// $db->setTimeout(1.5);      // 1500 ms
+$db->setTimeout(1.5);      // 1500 ms
 $db->setTimeout(10);       // 10 seconds
-$db->setConnectTimeOut(10); // 5 seconds
+$db->setConnectTimeOut(5); // 5 seconds
 
 echo "<html><pre>";
 
@@ -25,9 +25,9 @@ echo "</br>"; echo  "\n-----\ntry write:create_table\n";
 $db->database('default');
 //------------------------------------------------------------------------------
 
-echo "</br>"; echo  'Tables EXISTS: '  <pre>. json_encode($db->showTables()) . PHP_</pre>EOL;
+echo "</br>"; echo  'Tables EXISTS: ' . json_encode($db->showTables()) . PHP_EOL;
 $db->write('DROP TABLE IF EXISTS summing_url_views');
-echo "</br>"; echo  'Tables EXISTS: '  <pre>. json_encode($db->showTables()) . PHP_</pre>EOL;
+echo "</br>"; echo  'Tables EXISTS: ' . json_encode($db->showTables()) . PHP_EOL;
 
 $db->write('
     CREATE TABLE IF NOT EXISTS summing_url_views (
@@ -42,7 +42,7 @@ $db->write('
     ENGINE = SummingMergeTree(event_date, (site_id, url_hash, event_time, event_date), 8192)
 '
 );
-echo "</br>"; echo  'Table EXISTS: '  <pre>. json_encode($db->showTables()) . PHP_</pre>EOL;
+echo "</br>"; echo  'Table EXISTS: ' . json_encode($db->showTables()) . PHP_EOL;
 
 /*
 Table EXISTS: [{"name": "summing_url_views"}]
@@ -151,8 +151,8 @@ print_r($st->rowsAsTree('event_date.url_hash'));
         )
 )
  */
-// $db->write("DROP TABLE IF EXISTS summing_url_views");
-echo "</br>"; echo  "Tables EXISTS: <pre>".json_encode($db->showTables())."</pre>\n";
+$db->write("DROP TABLE IF EXISTS summing_url_views");
+echo "</br>"; echo  "Tables EXISTS:".json_encode($db->showTables())."\n";
 /*
 Tables EXISTS:[]
  */
