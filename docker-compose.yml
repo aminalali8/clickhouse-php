@@ -18,4 +18,4 @@ services:
       - internal
 networks:
   internal:
-    # driver: bridge
+    driver: bridge
