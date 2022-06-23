@@ -64,6 +64,8 @@ spec:
                       - -xc
                       - "/bin/clickhouse-backup server"
                    env:
+                      - name: CLICKHOUSE_HOST
+                        value: clickhouse-rwj4sm
                       - name: LOG_LEVEL
                         value: "debug"
                       - name: ALLOW_EMPTY_BACKUPS
@@ -91,12 +93,12 @@ spec:
                       - name: S3_SECRET_KEY
                         value: PHUG70HqYqbEpX7Droa8lac5bTQ5egRCUhuQGwWW
                       - name: S3_FORCE_PATH_STYLE
-                        value: "true"
+                        value: "false"
                       # remove it for production S3
                       - name: S3_DISABLE_SSL
                         value: "true"
                       - name: S3_DEBUG
-                        value: "true"
+                        value: "false"
                     # require to avoid double scraping clickhouse and clickhouse-backup containers
                    ports:
                       - name: backup-rest
