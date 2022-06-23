@@ -2,7 +2,6 @@
 
 require 'vendor/autoload.php';
 
-// $_ENV['CH_HOST'] = 'clickhouse-zhng4w';
 echo $_ENV['CH_HOST'] . PHP_EOL;
 
 $config = [
