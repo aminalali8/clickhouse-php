@@ -1,0 +1,78 @@
+kind: Environment
+version: v1
+metadata:
+    com.bunnyshell.k8s.id: 2527
+    com.bunnyshell.k8s.unique: zhng4w
+name: clickhouse-php-app
+type: primary
+environmentVariables:
+    CH_HOST: clickhouse-zhng4w
+projectVariables: {  }
+builtinVariables:
+    BNS_INGRESS_URL_PHP_0: php-zhng4w.bunnyenv.com
+components:
+    -
+        kind: Application
+        version: v1
+        name: php
+        metadata:
+            com.bunnyshell.k8s.source-file: 'git://github.com/aminalali8/clickhouse-php.git/docker-compose.yml'
+            com.bunnyshell.k8s.source-file-hash: 19d295a272515d479ace5e241b6050092bfefd1a
+            com.bunnyshell.k8s.source-block-hash: 8ccaa168396a3040c48c78dd4d0c6b31
+            com.bunnyshell.k8s.id: 6593
+            com.bunnyshell.k8s.display-name: php
+            com.bunnyshell.k8s.unique: zhng4w-0
+        gitRepo: 'git://github.com/aminalali8/clickhouse-php.git'
+        gitBranch: main
+        gitDockerComposePath: /docker-compose.yml
+        gitApplicationPath: /
+        dockerCompose:
+            build:
+                context: .
+                dockerfile: php/Dockerfile
+                args: {  }
+            ports:
+                - '8080:80'
+        builtinVariables:
+            BNS_GIT_BRANCH: main
+        envVarMapping: {  }
+        k8s: null
+        pod: null
+        hosts:
+            -
+                hostname: php-zhng4w.bunnyenv.com
+                path: /
+                servicePort: 8080
+helmCharts:
+    clickhouse:
+        repository: 'https://liwenhe1993.github.io/charts/'
+        repositoryType: helm
+        name: clickhouse
+        version: 1.0.1
+        repositoryPath: null
+        repositoryGitRef: null
+        valuesFiles: {  }
+        values:
+            -
+                name: timezone
+                value: Europe/London
+            -
+                name: clickhouse.persistentVolumeClaim.dataPersistentVolume.storage
+                value: 10Gi
+            -
+                name: clickhouse.persistentVolumeClaim.logsPersistentVolume.storage
+                value: 2Gi
+            -
+                name: tabix.enabled
+                value: false
+    # for clickhouse backup
+    # clickhouse-operator:
+    #     repository: 'https://slamdev.github.io/helm-charts/'
+    #     repositoryType: helm
+    #     name: altinity-clickhouse-operator
+    #     version: 0.0.18
+    #     repositoryPath: null
+    #     repositoryGitRef: null
+    #     valuesFiles: {  }
+    #     values:
+    #         -
