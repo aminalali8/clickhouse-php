@@ -3,8 +3,8 @@
 export CLICKHOUSE_HOST=clickhouse-rwj4sm
 export REMOTE_STORAGE='s3'
 export BACKUPS_TO_KEEP_REMOTE=1
-export S3_ACCESS_KEY='AKIA2H6TKJHIJRUKBDE7'
-export S3_SECRET_KEY='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'
+export S3_ACCESS_KEY=''
+export S3_SECRET_KEY=''
 export S3_BUCKET='bnsclickhousebucket'
 export S3_ENDPOINT='http://bnsclickhousebucket.s3.eu-west-1.amazonaws.com/'
 export S3_REGION="eu-west-1"
